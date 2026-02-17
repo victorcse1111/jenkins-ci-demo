@@ -1,17 +1,7 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('* * * * *')
-    }
-
     stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
 
         stage('Print Message') {
             steps {
@@ -21,7 +11,7 @@ pipeline {
 
         stage('Run Dummy Test') {
             steps {
-                sh 'bash test.sh'
+                sh 'echo Running dummy test...'
             }
         }
     }
